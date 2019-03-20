@@ -1,1 +1,1 @@
-console.log('Hello ProbeDream!');
+import icon from './icon'

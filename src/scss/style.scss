@@ -49,7 +49,50 @@ $color3: #0025f1;
       }
       .footer{height: 160px;margin-top: 10px;
         .buttons{display: flex;justify-content: center;
-        svg{width: 24px;height: 24px;margin:0 20px;}
+        svg{width: 24px;height: 24px;margin:0 20px;}  
+      }
+        .area-bar{
+          color:$color1;
+          display: flex;
+          align-items: center;
+          margin-top: 20px;
+          padding: 0 20px;
+          font-size: 12px;
+          .time-start{
+            order: 1;
+            width: 40px;
+          }
+          .time-start{
+            order: 3;
+            width: 40px;
+          }
+          .bar{
+            order:2;
+            flex: 1;
+            height: 4px;
+            border-radius: 4px;
+            background-color: $color3;
+            margin: 0 10px;
+            .progress{
+              width: 0%;
+              transition:all 0.2s;
+              height: 100%;
+              border-radius: 2px;
+              background-color: $color2;
+              position: relative;
+              &::after{
+                content:'';
+                position: absolute;
+                right: -8px;
+                top: -7px;
+                width: 16px;
+                height: 16px;
+                display: block;
+                background: url(../svg/progress.svg) 0 0 no-repeat;
+                background-size: contain;
+              }  
+            }
+          }
         }
       }  
 }
