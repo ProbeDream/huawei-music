@@ -4,23 +4,29 @@ $color1: #868aaf;
 $color2: #db3baa;
 $color2-dark: darken($color2, 10%);
 $color2-darker: darken($color2, 30%);
-$color3: #0025f1;
-
+$color3:#0025f1;
 *{margin: 0;padding: 0;box-sizing: border-box;}
 #player{
-    background: $backgroundColor;height: 100vh;
+    background: $backgroundColor;height: 100vh;overflow: hidden; 
     .header{text-align: center;height: 110px;
     &>h1{color:$color;font-size: 20px;padding-top: 20px;}
-    &>p{color:$color;font-size: 12px;}}
+    &>p{color:$color;font-size: 12px;}
     .balls{
-       display: flex;justify-content: center;align-items: center;margin-top: 20px;
-       span{
-          height: 10px;width: 10px;background: $color2-darker;
-          display: block;border-radius: 50%;margin:0 4px;
-          &.current{width: 8px;height: 8px;background: $color2;}}}
+      display: flex;justify-content: center;align-items: center;margin-top: 20px;
+      span{
+        height: 5px;width: 5px;background: $color2-darker;
+        display: block;border-radius: 50%;margin:0 4px;
+        &.current{width: 8px;height: 8px;background: $color2;}}}
+  }
+    
       .panels{
         width: 200vw;
-        height: calc(100vh-270px);
+        height: calc(100vh - 270px);
+        display: flex;
+        align-items: center;
+        transition:transform 0.3s;
+        &.panel1{transform: translateX(0);}
+        &.panel2{transform: translateX(-100vw);}
         .panel-effect{
             display: flex;
             justify-content: center;
@@ -33,23 +39,25 @@ $color3: #0025f1;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                >div{
-                    background: contain;
-                    position: absolute;
-                }
+                >div{background: contain;position: absolute;}
                 .effect-1{background: url(../svg/effect-no-move.svg) 0 0 no-repeat; width: 70vw;height:70vw;animation: rotate 20s linear infinite; }
                 .effect-2{background: url(../svg/effect-move1.svg)0 0 no-repeat; width: 60vw;height:60vw; animation: rotate 10s linear infinite reverse;}
                 .effect-3{background: url(../svg/effect-move2.svg)0 0 no-repeat; width: 24vw;height:24vw;animation: rotate 10s linear infinite; }   
             }
-            .lyric{
-                text-align: center;p{font-style: 10px;color:$color1;margin-top: 8px
-                ;&.current{color:$color;}}
-            }
+            .lyric{text-align: center;
+              p{font-size: 14px;color:$color1;margin-top: 8px;
+                &.current{color:$color;}}}
+        }
+        .panel-lyrics{
+          width: 100vw;
+          height: calc(100% - 40px);
+          text-align: center;
+          overflow: hidden;
         }
       }
-      .footer{height: 160px;margin-top: 10px;
+      .footer{height: 160px;
         .buttons{display: flex;justify-content: center;
-        svg{width: 24px;height: 24px;margin:0 20px;}  
+         svg{width: 24px;height: 24px;margin:0 20px;}  
       }
         .area-bar{
           color:$color1;
@@ -58,20 +66,14 @@ $color3: #0025f1;
           margin-top: 20px;
           padding: 0 20px;
           font-size: 12px;
-          .time-start{
-            order: 1;
-            width: 40px;
-          }
-          .time-start{
-            order: 3;
-            width: 40px;
-          }
+          .time-start{order: 1;width: 40px;}
+          .time-start{order: 3;width: 40px}
           .bar{
             order:2;
             flex: 1;
             height: 4px;
             border-radius: 4px;
-            background-color: $color3;
+            background-color:$color3;
             margin: 0 10px;
             .progress{
               width: 0%;
@@ -89,18 +91,23 @@ $color3: #0025f1;
                 height: 16px;
                 display: block;
                 background: url(../svg/progress.svg) 0 0 no-repeat;
-                background-size: contain;
-              }  
+                background-size: contain;}  
             }
           }
         }
+        .actions{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 20px;
+          padding:0 20px;
+          svg{
+            width: 28px;
+            height: 28px;
+            &.btn-play-pause{width: 50px;height: 50px;} 
+          }}
       }  
 }
 @keyframes rotate{
-   0%{
-     transform: rotate(0)  
-   }
-   100%{
-    transform: rotate(360deg)  
-  }  
-}
+   0%{transform: rotate(0)}
+   100%{transform: rotate(360deg)}}
