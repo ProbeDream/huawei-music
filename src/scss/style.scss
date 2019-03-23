@@ -10,7 +10,7 @@ $color3:#0025f1;
     background: $backgroundColor;height: 100vh;overflow: hidden; 
     .header{text-align: center;height: 110px;
     &>h1{color:$color;font-size: 20px;padding-top: 20px;}
-    &>p{color:$color;font-size: 12px;}
+    &>p{color:$color;font-size: 12px;padding-top: 4px;}
     .balls{
       display: flex;justify-content: center;align-items: center;margin-top: 20px;
       span{
@@ -39,6 +39,7 @@ $color3:#0025f1;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                margin-bottom: 10px;
                 >div{background: contain;position: absolute;}
                 .effect-1{background: url(../svg/effect-no-move.svg) 0 0 no-repeat; width: 70vw;height:70vw;animation: rotate 20s linear infinite; }
                 .effect-2{background: url(../svg/effect-move1.svg)0 0 no-repeat; width: 60vw;height:60vw; animation: rotate 10s linear infinite reverse;}
@@ -53,6 +54,17 @@ $color3:#0025f1;
           height: calc(100% - 40px);
           text-align: center;
           overflow: hidden;
+          .container{
+            transition: all 0.4s;
+            p{
+              color:$color1;
+              line-height: 2;
+              font-size: 14px;
+              &.current{
+                color:$color;
+              }
+            }
+          }
         }
       }
       .footer{height: 160px;
@@ -67,7 +79,7 @@ $color3:#0025f1;
           padding: 0 20px;
           font-size: 12px;
           .time-start{order: 1;width: 40px;}
-          .time-start{order: 3;width: 40px}
+          .time-end{order: 3;width: 40px}
           .bar{
             order:2;
             flex: 1;
