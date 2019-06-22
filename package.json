@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
-    "build":"parcel build index.html --public-url=\"./\""
+    "build": "parcel build index.html --public-url=\"./\""
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,6 @@
   "devDependencies": {
     "cssnano": "^4.1.10",
     "parcel-bundler": "^1.12.2",
-    "sass": "^1.17.3"
+    "sass": "^1.21.0"
   }
 }

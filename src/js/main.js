@@ -14,7 +14,7 @@ class Player {
     this.bind();
   }
   start() {
-    fetch(`https://charliesmith97.github.io/mock-data/resource/music-list.json`)
+    fetch(`https://ProbeDream.github.io/mock-data/resource/music-list.json`)
       .then(res => {
         return res.json();
       })
